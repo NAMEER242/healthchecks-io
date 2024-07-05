@@ -1,0 +1,58 @@
+{
+  "name": "nestjs-healthchecks-io",
+  "version": "1.0.0",
+  "description": "A simple healthcheck.io implementation as a module for nestjs",
+  "repository": {
+    "url": "https://github.com/NAMEER242/nestjs-healthchecks-io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NAMEER242/nestjs-healthchecks-io/issues"
+  },
+  "homepage": "https://github.com/NAMEER242/nestjs-healthchecks-io.git",
+  "author": {
+    "name": "nameer haider",
+    "email": "nmeer5242@gmail.com",
+    "url": "https://github.com/NAMEER242"
+  },
+  "keywords": [
+    "nestjs",
+    "nest-js",
+    "healthcheck",
+    "healthchecks",
+    "healthchecks-io",
+    "healthchecks.io",
+    "node",
+    "nestjs-healthchecks-io",
+    "monitor",
+    "monitoring"
+  ],
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "ts-node src/index.ts",
+    "start:prod": "npm run build && node lib/main.js",
+    "build": "tsc",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "@nestjs/common": "^10.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "ts-loader": "^9.4.3",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.1.3"
+  },
+  "private": false,
+  "license": "MIT"
+}
