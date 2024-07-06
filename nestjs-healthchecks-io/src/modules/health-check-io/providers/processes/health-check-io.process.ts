@@ -1,7 +1,7 @@
-import { HealthChecksIoApi } from '../../../../healthchecks_io/api';
-import { HealthCheckOptions } from '../../../../common/dtos/healthchecks.dtos';
+import { HealthChecksIoApi } from '../../../../../../healthchecks-io/src/health-checks-io.api';
 import { Logger } from '../../../../common/utils/logger';
-import { HealthCheckIOService } from '../services/health-check-io.service';
+import { HealthCheckIOService } from '../../../../../../healthchecks-io/src/health-check-io.service';
+import { HealthCheckOptions } from '../../../../../../healthchecks-io/src/common/dtos/healthchecks.dtos';
 
 const logger = new Logger('HealthChecks.io');
 const apis: Record<string, HealthChecksIoApi> = {};

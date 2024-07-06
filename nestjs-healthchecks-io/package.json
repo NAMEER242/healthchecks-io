@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "A simple healthcheck.io implementation as a module for nestjs",
   "repository": {
-    "url": "https://github.com/NAMEER242/nestjs-healthchecks-io.git"
+    "url": "https://github.com/NAMEER242/healthchecks-io.git"
   },
   "bugs": {
-    "url": "https://github.com/NAMEER242/nestjs-healthchecks-io/issues"
+    "url": "https://github.com/NAMEER242/healthchecks-io/issues"
   },
-  "homepage": "https://github.com/NAMEER242/nestjs-healthchecks-io.git",
+  "homepage": "https://github.com/NAMEER242/healthchecks-io.git",
   "author": {
     "name": "nameer haider",
     "email": "nmeer5242@gmail.com",
@@ -38,7 +38,8 @@
   },
   "dependencies": {
     "axios": "^1.7.2",
-    "@nestjs/common": "^10.3.3"
+    "@nestjs/common": "^10.3.3",
+    "shared": "file:../healthchecks-io"
   },
   "devDependencies": {
     "@types/node": "^20.3.1",

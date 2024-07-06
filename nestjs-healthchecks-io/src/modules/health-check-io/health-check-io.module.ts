@@ -1,8 +1,8 @@
 import { DynamicModule, Inject, Module } from '@nestjs/common';
 import { OnApplicationBootstrap } from '@nestjs/common/interfaces/hooks/on-application-bootstrap.interface';
-import { HealthCheckOptions } from '../../common/dtos/healthchecks.dtos';
 import { spawn } from 'child_process';
 import { Logger } from '../../common/utils/logger';
+import { HealthCheckOptions } from '../../../../healthchecks-io/src/common/dtos/healthchecks.dtos';
 
 const logger = new Logger('HealthChecks.io');
 
@@ -11,7 +11,7 @@ export class TypeormVersionControlModule implements OnApplicationBootstrap {
   constructor(
     @Inject('HEALTH_CHECKS')
     private readonly healthChecks: HealthCheckOptions[],
-  ) {} // private readonly tableVersionService: TableVersionService,
+  ) {}
 
   static forRoot(healthChecks: HealthCheckOptions[]): DynamicModule {
     return {
@@ -31,7 +31,7 @@ export class TypeormVersionControlModule implements OnApplicationBootstrap {
       'npx',
       [
         'ts-node',
-        'src/process.ts',
+        './providers/processes/health-check-io.process.ts',
         encodeURIComponent(JSON.stringify(this.healthChecks)),
       ],
       {

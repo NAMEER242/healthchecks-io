@@ -1,6 +1,6 @@
-import { Logger } from '../../../../common/utils/logger';
-import { HealthChecksIoApi } from '../../../../healthchecks_io/api';
-import { HealthCheckOptions } from '../../../../common/dtos/healthchecks.dtos';
+import { Logger } from '../../nestjs-healthchecks-io/src/common/utils/logger';
+import { HealthChecksIoApi } from './health-checks-io.api';
+import { HealthCheckOptions } from './common/dtos/healthchecks.dtos';
 
 export class HealthCheckIOService {
   logger = new Logger('HealthChecks.io');

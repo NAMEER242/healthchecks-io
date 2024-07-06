@@ -1,9 +1,9 @@
 import axios, { AxiosInstance } from 'axios';
+import { Logger } from '../../nestjs-healthchecks-io/src/common/utils/logger';
 import {
   CreateCheckRequest,
   UpdateCheckRequest,
-} from '../common/dtos/healthchecks.dtos';
-import { Logger } from '../common/utils/logger';
+} from './common/dtos/healthchecks.dtos';
 
 const logger = new Logger('HealthChecks.io');
 
