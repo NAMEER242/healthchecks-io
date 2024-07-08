@@ -1,7 +1,7 @@
 import { HealthChecksIoApi } from '../../../../../../healthchecks-io/src/health-checks-io.api';
-import { Logger } from '../../../../common/utils/logger';
 import { HealthCheckIOService } from '../../../../../../healthchecks-io/src/health-check-io.service';
 import { HealthCheckOptions } from '../../../../../../healthchecks-io/src/common/dtos/healthchecks.dtos';
+import { Logger } from '@nestjs/common';
 
 const logger = new Logger('HealthChecks.io');
 const apis: Record<string, HealthChecksIoApi> = {};
@@ -43,7 +43,7 @@ async function mainProcess() {
 
   // Initialize the health checks
   for (const hcOptions of healthCheckOptions) {
-    logger.info(`Initializing [${hcOptions.checkName}] health check`);
+    logger.log(`Initializing [${hcOptions.checkName}] health check`);
     apis[hcOptions.checkName] = new HealthChecksIoApi({
       apiKey: hcOptions.apiKey,
       baseUrl: hcOptions.baseUrl,
@@ -53,7 +53,7 @@ async function mainProcess() {
 
   // Start the ping services
   for (const hcOptions of healthCheckOptions) {
-    logger.info(`Starting [${hcOptions.checkName}] ping service`);
+    logger.log(`Starting [${hcOptions.checkName}] ping service`);
     hcService.startPingService(
       apis[hcOptions.checkName],
       hcService.pingUrls[hcOptions.checkName],

@@ -1,8 +1,8 @@
-import { DynamicModule, Inject, Module } from '@nestjs/common';
+import { DynamicModule, Inject, Logger, Module } from '@nestjs/common';
 import { OnApplicationBootstrap } from '@nestjs/common/interfaces/hooks/on-application-bootstrap.interface';
 import { spawn } from 'child_process';
-import { Logger } from '../../common/utils/logger';
 import { HealthCheckOptions } from '../../../../healthchecks-io/src/common/dtos/healthchecks.dtos';
+import { join } from 'path';
 
 const logger = new Logger('HealthChecks.io');
 
@@ -31,7 +31,7 @@ export class HealthCheckIoModule implements OnApplicationBootstrap {
       'npx',
       [
         'ts-node',
-        './providers/processes/health-check-io.process.ts',
+        join(__dirname, './providers/processes/health-check-io.process.js'),
         encodeURIComponent(JSON.stringify(this.healthChecks)),
       ],
       {
@@ -48,7 +48,7 @@ export class HealthCheckIoModule implements OnApplicationBootstrap {
       logger.error(`Health Check Error: ${data}`);
     });
     healthCheckProcess.on('close', (code) => {
-      logger.info(`Health check process exited with code ${code}`);
+      logger.log(`Health check process exited with code ${code}`);
     });
 
     // Ensure the health check process is killed when the application stops
