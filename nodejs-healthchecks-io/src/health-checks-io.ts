@@ -1,6 +1,7 @@
 import { spawn } from 'child_process';
 import { Logger } from './common/utils/logger';
 import { HealthCheckOptions } from '../../healthchecks-io/src/common/dtos/healthchecks.dtos';
+import { join } from 'path';
 
 const logger = new Logger('HealthChecks.io');
 
@@ -10,7 +11,7 @@ async function healthchecks(healthChecks: HealthCheckOptions[]) {
     'npx',
     [
       'ts-node',
-      './providers/processes/health-check-io.process.ts',
+      join(__dirname, './health-check-io.process.js'),
       encodeURIComponent(JSON.stringify(healthChecks)),
     ],
     {
