@@ -7,7 +7,7 @@ import { HealthCheckOptions } from '../../../../healthchecks-io/src/common/dtos/
 const logger = new Logger('HealthChecks.io');
 
 @Module({})
-export class TypeormVersionControlModule implements OnApplicationBootstrap {
+export class HealthCheckIoModule implements OnApplicationBootstrap {
   constructor(
     @Inject('HEALTH_CHECKS')
     private readonly healthChecks: HealthCheckOptions[],
@@ -15,7 +15,7 @@ export class TypeormVersionControlModule implements OnApplicationBootstrap {
 
   static forRoot(healthChecks: HealthCheckOptions[]): DynamicModule {
     return {
-      module: TypeormVersionControlModule,
+      module: HealthCheckIoModule,
       providers: [
         {
           provide: 'HEALTH_CHECKS',

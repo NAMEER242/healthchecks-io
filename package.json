@@ -5,9 +5,9 @@
     "build:nest-js": "cd nestjs-healthchecks-io && npm run build",
     "build:node-js": "",
     "build": "npm run build:nest-js && npm run build:node-js",
-    "publish:nest-js": "cd nestjs-healthchecks-io && npm publish --access public",
-    "publish:node-js": "",
-    "publish": "npm run publish:nest-js && npm run publish:node-js",
+    "publish:nest-js": "cd nestjs-healthchecks-io && npm run build && npm publish --access public",
+    "publish:node-js": "cd nodejs-healthchecks-io && npm run build && npm publish --access public",
+    "publish": "npm run publish:nest-js & npm run publish:node-js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   },
   "dependencies": {},
