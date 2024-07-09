@@ -1,6 +1,6 @@
 {
   "name": "nestjs-healthchecks-io",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "A simple healthcheck.io implementation as a module for nestjs",
   "repository": {
     "url": "https://github.com/NAMEER242/healthchecks-io.git"

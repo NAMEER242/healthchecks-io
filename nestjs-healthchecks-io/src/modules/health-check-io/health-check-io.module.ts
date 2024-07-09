@@ -1,4 +1,10 @@
-import { DynamicModule, Inject, Logger, Module } from '@nestjs/common';
+import {
+  DynamicModule,
+  Inject,
+  Logger,
+  Module,
+  Provider,
+} from '@nestjs/common';
 import { OnApplicationBootstrap } from '@nestjs/common/interfaces/hooks/on-application-bootstrap.interface';
 import { spawn } from 'child_process';
 import { HealthCheckOptions } from '../../../../healthchecks-io/src/common/dtos/healthchecks.dtos';
@@ -22,6 +28,24 @@ export class HealthCheckIoModule implements OnApplicationBootstrap {
           useValue: healthChecks,
         },
       ],
+    };
+  }
+
+  static forRootAsync(options: {
+    imports?: any[];
+    useFactory: (...args: any) => Promise<HealthCheckOptions[]>;
+    inject?: any[];
+  }): DynamicModule {
+    const asyncProviders: Provider = {
+      provide: 'HEALTH_CHECKS',
+      useFactory: options.useFactory,
+      inject: options.inject || [],
+    };
+
+    return {
+      module: HealthCheckIoModule,
+      imports: options.imports || [],
+      providers: [asyncProviders],
     };
   }
 
