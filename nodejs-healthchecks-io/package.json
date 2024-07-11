@@ -1,6 +1,6 @@
 {
   "name": "nodejs-healthchecks-io",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple healthcheck.io implementation for nodejs",
   "repository": {
     "url": "https://github.com/NAMEER242/healthchecks-io.git"
